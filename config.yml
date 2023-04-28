@@ -1,0 +1,8 @@
+- name: inventory-api
+  directory: "/usr/local/inventory-api"
+  branch: develop
+  command: "/usr/local/inventory-api/scripts/deploy.sh"
+- name: other-api
+  directory: "/usr/local/other-api"
+  branch: develop
+  command: "/usr/local/other-api/scripts/deploy.sh"
