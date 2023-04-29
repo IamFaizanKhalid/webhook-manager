@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hook Form</title>
+</head>
+<body>
+<h2>Hook Form</h2>
+<form>
+  <label for="id">ID:</label>
+  <input type="text" id="id" name="id"><br>
+
+  <label for="execute-command">Execute Command:</label>
+  <input type="text" id="execute-command" name="execute-command"><br>
+
+  <label for="command-working-directory">Command Working Directory:</label>
+  <input type="text" id="command-working-directory" name="command-working-directory"><br>
+
+  <label for="response-message">Response Message:</label>
+  <input type="text" id="response-message" name="response-message"><br>
+
+  <label for="response-headers">Response Headers:</label>
+  <input type="text" id="response-headers" name="response-headers"><br>
+
+  <label for="capture-command-output">Capture Command Output:</label>
+  <input type="checkbox" id="capture-command-output" name="capture-command-output"><br>
+
+  <label for="capture-command-output-on-error">Capture Command Output On Error:</label>
+  <input type="checkbox" id="capture-command-output-on-error" name="capture-command-output-on-error"><br>
+
+  <label for="pass-environment-to-command">Pass Environment to Command:</label>
+  <input type="text" id="pass-environment-to-command" name="pass-environment-to-command"><br>
+
+  <label for="pass-arguments-to-command">Pass Arguments to Command:</label>
+  <input type="text" id="pass-arguments-to-command" name="pass-arguments-to-command"><br>
+
+  <label for="pass-file-to-command">Pass File to Command:</label>
+  <input type="text" id="pass-file-to-command" name="pass-file-to-command"><br>
+
+  <label for="json-string-parameters">JSON String Parameters:</label>
+  <input type="text" id="json-string-parameters" name="json-string-parameters"><br>
+
+  <label for="trigger-rule">Trigger Rule:</label>
+  <input type="text" id="trigger-rule" name="trigger-rule"><br>
+
+  <label for="trigger-rule-mismatch-http-response-code">Trigger Rule Mismatch HTTP Response Code:</label>
+  <input type="text" id="trigger-rule-mismatch-http-response-code" name="trigger-rule-mismatch-http-response-code"><br>
+
+  <label for="trigger-signature-soft-failures">Trigger Signature Soft Failures:</label>
+  <input type="checkbox" id="trigger-signature-soft-failures" name="trigger-signature-soft-failures"><br>
+
+  <label for="incoming-payload-content-type">Incoming Payload Content Type:</label>
+  <input type="text" id="incoming-payload-content-type" name="incoming-payload-content-type"><br>
+
+  <label for="success-http-response-code">Success HTTP Response Code:</label>
+  <input type="text" id="success-http-response-code" name="success-http-response-code"><br>
+
+  <label for="http-methods">HTTP Methods:</label>
+  <input type="text" id="http-methods" name="http-methods"><br>
+
+  <button id="hook-form">Submit</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper-base.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

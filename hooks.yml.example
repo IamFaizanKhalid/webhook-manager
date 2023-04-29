@@ -1,0 +1,52 @@
+- id: test-api
+  execute-command: "/usr/local/test-api/scripts/deploy.sh"
+  command-working-directory: "/usr/local/test-api"
+  pass-arguments-to-command:
+    - source: payload
+      name: head_commit.id
+    - source: payload
+      name: head_commit.message
+    - source: payload
+      name: head_commit.author.name
+    - source: payload
+      name: head_commit.author.email
+  trigger-rule:
+    and:
+      - match:
+          type: payload-hash-sha256
+          secret: _secret_
+          parameter:
+            source: header
+            name: X-Hub-Signature-256
+      - match:
+          type: value
+          value: refs/heads/master
+          parameter:
+            source: payload
+            name: ref
+- id: other-api
+  execute-command: "/usr/local/other-api/scripts/deploy.sh"
+  command-working-directory: "/usr/local/other-api"
+  pass-arguments-to-command:
+    - source: payload
+      name: head_commit.id
+    - source: payload
+      name: head_commit.message
+    - source: payload
+      name: head_commit.author.name
+    - source: payload
+      name: head_commit.author.email
+  trigger-rule:
+    and:
+      - match:
+          type: payload-hash-sha256
+          secret: _secret_
+          parameter:
+            source: header
+            name: X-Hub-Signature-256
+      - match:
+          type: value
+          value: refs/heads/develop
+          parameter:
+            source: payload
+            name: ref
