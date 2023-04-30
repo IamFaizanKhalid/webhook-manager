@@ -1,4 +1,4 @@
-package model
+package dao
 
 import (
 	"os"
@@ -61,6 +61,11 @@ type Hook struct {
 	IncomingPayloadContentType          string          `yaml:"incoming-payload-content-type,omitempty" json:"incoming_payload_content_type"`
 	SuccessHttpResponseCode             int             `yaml:"success-http-response-code,omitempty" json:"success_http_response_code"`
 	HTTPMethods                         []string        `yaml:"http-methods,omitempty" json:"http_methods"`
+}
+
+func (h Hook) Validate() error {
+	//TODO implement me
+	panic("implement me")
 }
 
 // FileParameter describes a pass-file-to-command instance to be stored as file

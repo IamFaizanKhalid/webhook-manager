@@ -5,6 +5,8 @@ go 1.20
 require (
 	github.com/go-chi/chi/v5 v5.0.8
 	github.com/go-chi/cors v1.2.1
+	github.com/homelight/json v1.18.5
+	github.com/joho/godotenv v1.5.1
 	gopkg.in/yaml.v2 v2.4.0
 )
 
