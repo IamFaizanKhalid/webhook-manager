@@ -5,44 +5,27 @@ $(document).ready(function() {
     submitButton.click(function(event) {
         event.preventDefault();
 
-        // Get form values
-        const executeCommand = $('#executeCommand').val();
-        const commandWorkingDirectory = $('#commandWorkingDirectory').val();
-        const responseMessage = $('#responseMessage').val();
-        const responseHeaders = $('#responseHeaders').val();
-        const captureCommandOutput = $('#captureCommandOutput').prop('checked');
-        const captureCommandOutputOnError = $('#captureCommandOutputOnError').prop('checked');
-        const passEnvironmentToCommand = $('#passEnvironmentToCommand').val();
-        const passArgumentsToCommand = $('#passArgumentsToCommand').val();
-        const passFileToCommand = $('#passFileToCommand').val();
-        const JSONStringParameters = $('#JSONStringParameters').val();
-        const triggerRule = $('#triggerRule').val();
-        const triggerRuleMismatchHttpResponseCode = parseInt($('#triggerRuleMismatchHttpResponseCode').val());
-        const triggerSignatureSoftFailures = $('#triggerSignatureSoftFailures').prop('checked');
-        const incomingPayloadContentType = $('#incomingPayloadContentType').val();
-        const successHttpResponseCode = parseInt($('#successHttpResponseCode').val());
-        const httpMethods = $('input[name="httpMethods"]:checked').map(function() {
-            return $(this).val();
-        }).get();
-
         // Construct payload object
         const payload = {
-            execute_command: executeCommand,
-            command_working_directory: commandWorkingDirectory,
-            response_message: responseMessage,
-            response_headers: responseHeaders,
-            include_command_output_in_response: captureCommandOutput,
-            include_command_output_in_response_on_error: captureCommandOutputOnError,
-            pass_environment_to_command: passEnvironmentToCommand,
-            pass_arguments_to_command: passArgumentsToCommand,
-            pass_file_to_command: passFileToCommand,
-            parse_parameters_as_json: JSONStringParameters,
-            trigger_rule: triggerRule,
-            trigger_rule_mismatch_http_response_code: triggerRuleMismatchHttpResponseCode,
-            trigger_signature_soft_failures: triggerSignatureSoftFailures,
-            incoming_payload_content_type: incomingPayloadContentType,
-            success_http_response_code: successHttpResponseCode,
-            http_methods: httpMethods
+            id: $('#id').val(),
+            execute_command: $('#execute-command').val(),
+            command_working_directory: $('#command-working-directory').val(),
+            response_message: $('#response-message').val(),
+            //response_headers: $('#response-headers').val(),
+            // capture_command_output: $('#capture-command-output').prop('checked'),
+            // capture_command_output_on_error: $('#capture-command-output-on-error').prop('checked'),
+            // pass_environment_to_command: $('#pass-environment-to-command').val(),
+            // pass_arguments_to_command: $('#pass-arguments-to-command').val(),
+            // pass_file_to_command: $('#pass-file-to-command').val(),
+            // json_string_parameters: $('#json-string-parameters').val(),
+            // trigger_rule: $('#trigger-rule').val(),
+            trigger_rule_mismatch_http_response_code: parseInt($('#trigger-rule-mismatch-http-response-code').val()),
+            trigger_signature_soft_failures: $('#trigger-signature-soft-failures').prop('checked'),
+            incoming_payload_content_type: $('#incoming-payload-content-type').val(),
+            success_http_response_code: parseInt($('#success-http-response-code').val()),
+            // http_methods: $('input[name="http-methods"]:checked').map(function() {
+            //     return $(this).val();
+            // }).get()
         };
 
         // Send POST request to API endpoint
