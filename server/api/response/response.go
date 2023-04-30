@@ -14,9 +14,9 @@ func Encode(w http.ResponseWriter, payload interface{}) error {
 }
 
 func EncodeErr(w http.ResponseWriter, err error) error {
-	e, ok := err.(output.ErrResponse)
+	e, ok := err.(*output.ErrResponse)
 	if !ok {
-		return errors.New("parseRequest: target is expected to be of type *request.Request")
+		return errors.New("unable to parse error")
 	}
 
 	w.WriteHeader(e.HTTPStatusCode)

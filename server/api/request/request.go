@@ -15,10 +15,15 @@ type Payload interface {
 func Decode(r *http.Request, p Payload) error {
 	err := json.NewDecoder(r.Body).Decode(p)
 	if err != nil {
-		return err
+		return output.ErrInvalidRequest(err)
 	}
 
-	return p.Validate()
+	err = p.Validate()
+	if err != nil {
+		return output.ErrInvalidRequest(err)
+	}
+
+	return nil
 }
 
 func GetParam(r *http.Request, param string) (string, error) {
