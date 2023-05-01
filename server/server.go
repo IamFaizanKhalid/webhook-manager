@@ -22,6 +22,7 @@ func New(cfg Config) *Server {
 
 type Config struct {
 	HttpPort    int    `yaml:"httpPort"`
+	ApiKey      string `yaml:"apiKey"`
 	HooksFile   string `yaml:"hooksFile"`
 	WebhookPort int    `yaml:"webhookPort"`
 }
@@ -37,7 +38,7 @@ func (s *Server) Start(ctx context.Context) error {
 	svc := logic.New(ds)
 
 	// server
-	httpSrv := http.New(s.cfg.HttpPort,
+	httpSrv := http.New(s.cfg.HttpPort, s.cfg.ApiKey,
 		api.NewPing(),
 		api.NewHook(svc),
 		api.NewStatic("server/static"),

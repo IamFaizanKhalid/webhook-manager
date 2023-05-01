@@ -54,3 +54,8 @@ var NotFound = &Response{
 	HTTPStatusCode: http.StatusNotFound,
 	StatusText:     utils.StatusText(http.StatusNotFound),
 }
+
+var Unauthorized = &Response{
+	HTTPStatusCode: http.StatusUnauthorized,
+	StatusText:     utils.StatusText(http.StatusUnauthorized),
+}

@@ -9,7 +9,7 @@ import (
 	"github.com/go-chi/cors"
 )
 
-func (srv *Server) buildRouter() *chi.Mux {
+func (srv *Server) buildRouter(addMiddlewares ...func(http.Handler) http.Handler) *chi.Mux {
 	r := chi.NewRouter()
 
 	// Config
@@ -17,6 +17,9 @@ func (srv *Server) buildRouter() *chi.Mux {
 	r.Use(middleware.Recoverer)
 	r.Use(middleware.Logger)
 	r.Use(middleware.Timeout(30 * time.Second))
+	if len(addMiddlewares) > 0 {
+		r.Use(addMiddlewares...)
+	}
 
 	// CORS
 	r.Use(cors.Handler(cors.Options{

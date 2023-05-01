@@ -35,6 +35,7 @@ func readConfig() (server.Config, error) {
 
 	// parsing from arguments
 	flag.IntVar(&c.HttpPort, "port", 8000, "Port for http server")
+	flag.StringVar(&c.ApiKey, "apiKey", "", "Password to use the app")
 	flag.Parse()
 
 	remainingArgs := flag.Args()
@@ -46,6 +47,9 @@ func readConfig() (server.Config, error) {
 	// parsing from environment variables
 	if x, err := strconv.ParseInt(os.Getenv("HTTP_PORT"), 10, 64); err != nil {
 		c.HttpPort = int(x)
+	}
+	if x := os.Getenv("API_KEY"); x != "" {
+		c.ApiKey = x
 	}
 
 	// setting default values
