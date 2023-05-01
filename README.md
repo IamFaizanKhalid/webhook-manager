@@ -2,7 +2,7 @@
 
 Configure automatic deployments easily using GitHub Webhooks.
 
-<img align="right" width="120" alt="Webhook Manager" src="https://github.com/IamFaizanKhalid/webhook-manager/raw/master/server/static/logo.png">
+<img align="right" width="250" alt="Webhook Manager" src="https://github.com/IamFaizanKhalid/webhook-manager/raw/master/server/static/logo.png">
 
 
 ## Pre-requisites
