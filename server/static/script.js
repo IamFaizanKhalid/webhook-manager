@@ -7,9 +7,9 @@ $(document).ready(function() {
             let card = $('<div>').addClass('col-md-4 border rounded');
             let cardBody = $('<div>').addClass('card-body');
             let cardTitle = $('<h5>').addClass('card-title').text(hook.id);
-            let cardText = $('<p>').addClass('card-text').text(hook.command_working_directory);
-            let editButton = $('<a>').addClass('btn btn-primary mr-2').attr('href', '/edit_hook?id=' + hook.id).text('Edit');
-            let deleteButton = $('<a>').addClass('btn btn-danger').attr('href', '#').text('Delete');
+            let cardText = $('<p>').addClass('card-text').html('<i class="fa fa-folder-o"></i> '+hook.command_working_directory);
+            let editButton = $('<a>').addClass('text-info mr-2').attr('href', '/edit_hook?id=' + hook.id).html('<i class="fa fa-pencil"></i>');
+            let deleteButton = $('<a>').addClass('text-danger').attr('href', '#').html('<i class="fa fa-trash"></i>');
 
             // Add click event to delete button
             deleteButton.click(function(event) {
