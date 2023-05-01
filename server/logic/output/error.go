@@ -41,6 +41,15 @@ func ErrInternalError(err error) error {
 	}
 }
 
+func ErrConflict(err error) error {
+	return &ErrResponse{
+		Err:            err,
+		HTTPStatusCode: http.StatusConflict,
+		StatusText:     utils.StatusText(http.StatusConflict),
+		ErrorText:      err.Error(),
+	}
+}
+
 var ErrNotFound = &ErrResponse{
 	HTTPStatusCode: http.StatusNotFound,
 	StatusText:     utils.StatusText(http.StatusNotFound),

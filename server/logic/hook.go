@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"fmt"
 	"github.com/IamFaizanKhalid/webhook-api/server/dao"
 	"github.com/IamFaizanKhalid/webhook-api/server/logic/output"
 )
@@ -24,12 +25,19 @@ func (l *CoreLogic) DeleteHook(ctx context.Context, id string) error {
 }
 
 func (l *CoreLogic) AddHook(ctx context.Context, h dao.Hook) error {
+	if l.repo.HookExists(h.ID) {
+		return output.ErrConflict(fmt.Errorf("hook with id `%s` already exists", h.ID))
+	}
+
 	return wrap(l.repo.AddHook(h))
 }
 
 func (l *CoreLogic) UpdateHook(ctx context.Context, id string, h dao.Hook) error {
 	if !l.repo.HookExists(id) {
 		return output.ErrNotFound
+	}
+	if h.ID != id && l.repo.HookExists(h.ID) {
+		return output.ErrConflict(fmt.Errorf("another hook with id `%s` exists", h.ID))
 	}
 
 	return wrap(l.repo.UpdateHook(id, h))
