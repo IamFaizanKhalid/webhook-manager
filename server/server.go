@@ -2,6 +2,7 @@ package server
 
 import (
 	"context"
+	"github.com/IamFaizanKhalid/webhook-api/internal/auth"
 	"github.com/IamFaizanKhalid/webhook-api/internal/server/http"
 	"github.com/IamFaizanKhalid/webhook-api/server/api"
 	"github.com/IamFaizanKhalid/webhook-api/server/logic"
@@ -34,11 +35,14 @@ func (s *Server) Start(ctx context.Context) error {
 		return err
 	}
 
+	// auth
+	authHandler := auth.New(&authenticator{apiKey: s.cfg.ApiKey})
+
 	// service
 	svc := logic.New(ds)
 
 	// server
-	httpSrv := http.New(s.cfg.HttpPort, s.cfg.ApiKey,
+	httpSrv := http.New(s.cfg.HttpPort, authHandler,
 		api.NewPing(),
 		api.NewHook(svc),
 		api.NewStatic("server/static"),

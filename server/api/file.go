@@ -16,3 +16,7 @@ func NewStatic(path string) *Static {
 func (api *Static) Routes(r chi.Router) {
 	r.Handle("/*", api.fileServer)
 }
+
+func (api *Static) AuthRequired() bool {
+	return false
+}

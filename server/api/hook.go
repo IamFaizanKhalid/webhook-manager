@@ -31,6 +31,10 @@ func (api *Hook) Routes(r chi.Router) {
 	})
 }
 
+func (api *Hook) AuthRequired() bool {
+	return true
+}
+
 func (api *Hook) GetHooks(w http.ResponseWriter, r *http.Request) {
 	response.Encode(w, api.svc.GetAllHooks(r.Context()))
 }

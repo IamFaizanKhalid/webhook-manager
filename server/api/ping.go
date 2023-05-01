@@ -16,6 +16,10 @@ func (api *Ping) Routes(r chi.Router) {
 	r.Get("/hello", api.Hello)
 }
 
+func (api *Ping) AuthRequired() bool {
+	return false
+}
+
 func (api *Ping) Hello(w http.ResponseWriter, _ *http.Request) {
 	response.Encode(w, "everything is working fine..!")
 }
