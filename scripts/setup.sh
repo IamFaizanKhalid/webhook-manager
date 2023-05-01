@@ -30,6 +30,7 @@ echo "Creating new build..."
 sudo mkdir -p $TARGET_DIRECTORY || error "Failed to create target directory..."
 
 echo "Configuring environment..."
+sudo cp -R ./server/static $TARGET_DIRECTORY/ || error "Failed to copy static files..."
 sudo cp .env $TARGET_DIRECTORY/ || error "Failed to update environment variables..."
 sudo touch $TARGET_DIRECTORY/hooks.yml
 
