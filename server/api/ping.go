@@ -17,7 +17,7 @@ func (api *Ping) Routes(r chi.Router) {
 }
 
 func (api *Ping) AuthRequired() bool {
-	return false
+	return true
 }
 
 func (api *Ping) Hello(w http.ResponseWriter, _ *http.Request) {
