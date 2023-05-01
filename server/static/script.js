@@ -1,5 +1,5 @@
 // Retrieve hooks and display them
-$.get('http://localhost:8000/hooks', function(hooks) {
+$.get('/hooks', function(hooks) {
     let hooksContainer = $('#hooks-container');
     for (let i = 0; i < hooks.length; i++) {
         let hook = hooks[i];
@@ -34,7 +34,7 @@ $.get('http://localhost:8000/hooks', function(hooks) {
         $('#confirmation-button').click(function(event) {
             let hookId = $(this).attr('data-hook-id');
             $.ajax({
-                url: 'http://localhost:8000/hooks/' + hookId,
+                url: '/hooks/' + hookId,
                 type: 'DELETE',
                 success: function() {
                     // Remove div from display

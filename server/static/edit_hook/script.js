@@ -1,5 +1,24 @@
 $(document).ready(function () {
-    $('#hook-url').text(location.protocol + '//' + location.hostname + ":9000/hooks/my-app");
+    // Get the ID from query params
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    if (id == null || id === '') {
+        window.location.href = '/';
+        return
+    }
+
+    // Make GET request to the API endpoint
+    $.get(`/hooks/${id}`, function(hook) {
+        // Fill the form with the data
+        $('#id').val(hook.id);
+        $('#cmd').val(hook.execute_command);
+        $('#pwd').val(hook.command_working_directory);
+        $('#branch').val(hook.trigger_rule.and[1].match.value.replace('refs/heads/', ''));
+        $('#secret').val(hook.trigger_rule.and[0].match.secret);
+        $('#hook-url').text(location.protocol + '//' + location.hostname + ':9000/hooks/'+id);
+    });
+
+
 
     $("#togglePassword").click(function() {
         var password = $("#secret");
@@ -13,7 +32,7 @@ $(document).ready(function () {
         }
     });
 
-    $('#add-hook').click(function (event) {
+    $('#edit-hook').click(function (event) {
         event.preventDefault();
 
         // Construct payload object
@@ -67,8 +86,8 @@ $(document).ready(function () {
 
         // Send POST request to API endpoint
         $.ajax({
-            url: '/hooks',
-            type: 'POST',
+            url: '/hooks/'+id,
+            type: 'PUT',
             dataType: 'json',
             contentType: 'application/json',
             data: JSON.stringify(payload),
