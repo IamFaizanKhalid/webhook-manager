@@ -88,4 +88,11 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('#logout').click(function (event) {
+        event.preventDefault();
+
+        localStorage.removeItem('api_key');
+        window.location.href = '/login';
+    });
 });

@@ -72,4 +72,11 @@ $(document).ready(function () {
             console.error(error.responseJSON.error);
         }
     });
+
+    $('#logout').click(function (event) {
+        event.preventDefault();
+
+        localStorage.removeItem('api_key');
+        window.location.href = '/login';
+    });
 });
