@@ -1,7 +1,7 @@
 package logic
 
 import (
-	"github.com/IamFaizanKhalid/webhook-api/server/logic/output"
+	"github.com/IamFaizanKhalid/webhook-api/internal/errors"
 	"github.com/IamFaizanKhalid/webhook-api/server/repo"
 )
 
@@ -18,5 +18,5 @@ func wrap(err error) error {
 		return nil
 	}
 
-	return output.ErrInternalError(err)
+	return errors.InternalError(err)
 }

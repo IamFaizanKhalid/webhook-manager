@@ -2,7 +2,7 @@ package http
 
 import (
 	"fmt"
-	"github.com/IamFaizanKhalid/webhook-api/server/api"
+	"github.com/IamFaizanKhalid/webhook-api/internal/server/http/api"
 	"log"
 	"net/http"
 )

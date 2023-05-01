@@ -1,8 +1,8 @@
 package api
 
 import (
-	"github.com/IamFaizanKhalid/webhook-api/server/api/request"
-	"github.com/IamFaizanKhalid/webhook-api/server/api/response"
+	"github.com/IamFaizanKhalid/webhook-api/internal/server/http/api/request"
+	"github.com/IamFaizanKhalid/webhook-api/internal/server/http/api/response"
 	"github.com/IamFaizanKhalid/webhook-api/server/dao"
 	"github.com/IamFaizanKhalid/webhook-api/server/logic"
 	"github.com/go-chi/chi/v5"

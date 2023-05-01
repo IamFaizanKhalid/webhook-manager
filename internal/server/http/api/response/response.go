@@ -3,7 +3,7 @@ package response
 import (
 	"encoding/json"
 	"errors"
-	"github.com/IamFaizanKhalid/webhook-api/server/logic/output"
+	errors2 "github.com/IamFaizanKhalid/webhook-api/internal/errors"
 	"net/http"
 )
 
@@ -14,7 +14,7 @@ func Encode(w http.ResponseWriter, payload interface{}) error {
 }
 
 func EncodeErr(w http.ResponseWriter, err error) error {
-	e, ok := err.(*output.ErrResponse)
+	e, ok := err.(*errors2.Response)
 	if !ok {
 		return errors.New("unable to parse error")
 	}

@@ -1,16 +1,16 @@
-package output
+package errors
 
 import (
 	"github.com/IamFaizanKhalid/webhook-api/internal/utils"
 	"net/http"
 )
 
-// ErrResponse renderer type for handling all sorts of errors.
+// Response error type for handling all sorts of errors.
 //
 // In the best case scenario, the excellent github.com/pkg/errors package
 // helps reveal information on the error, setting it on Err, and in the Render()
 // method, using it to set the application-specific error code in AppCode.
-type ErrResponse struct {
+type Response struct {
 	Err            error `json:"-"` // low-level runtime error
 	HTTPStatusCode int   `json:"-"` // http response status code
 
@@ -19,12 +19,12 @@ type ErrResponse struct {
 	ErrorText  string `json:"error,omitempty"` // application-level error message, for debugging
 }
 
-func (e ErrResponse) Error() string {
+func (e Response) Error() string {
 	return e.Err.Error()
 }
 
-func ErrInvalidRequest(err error) error {
-	return &ErrResponse{
+func InvalidRequest(err error) error {
+	return &Response{
 		Err:            err,
 		HTTPStatusCode: http.StatusBadRequest,
 		StatusText:     utils.StatusText(http.StatusBadRequest),
@@ -32,8 +32,8 @@ func ErrInvalidRequest(err error) error {
 	}
 }
 
-func ErrInternalError(err error) error {
-	return &ErrResponse{
+func InternalError(err error) error {
+	return &Response{
 		Err:            err,
 		HTTPStatusCode: http.StatusInternalServerError,
 		StatusText:     utils.StatusText(http.StatusInternalServerError),
@@ -41,8 +41,8 @@ func ErrInternalError(err error) error {
 	}
 }
 
-func ErrConflict(err error) error {
-	return &ErrResponse{
+func Conflict(err error) error {
+	return &Response{
 		Err:            err,
 		HTTPStatusCode: http.StatusConflict,
 		StatusText:     utils.StatusText(http.StatusConflict),
@@ -50,7 +50,7 @@ func ErrConflict(err error) error {
 	}
 }
 
-var ErrNotFound = &ErrResponse{
+var NotFound = &Response{
 	HTTPStatusCode: http.StatusNotFound,
 	StatusText:     utils.StatusText(http.StatusNotFound),
 }

@@ -3,7 +3,7 @@ package request
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/IamFaizanKhalid/webhook-api/server/logic/output"
+	"github.com/IamFaizanKhalid/webhook-api/internal/errors"
 	"github.com/go-chi/chi/v5"
 	"net/http"
 )
@@ -15,12 +15,12 @@ type Payload interface {
 func Decode(r *http.Request, p Payload) error {
 	err := json.NewDecoder(r.Body).Decode(p)
 	if err != nil {
-		return output.ErrInvalidRequest(err)
+		return errors.InvalidRequest(err)
 	}
 
 	err = p.Validate()
 	if err != nil {
-		return output.ErrInvalidRequest(err)
+		return errors.InvalidRequest(err)
 	}
 
 	return nil
@@ -29,7 +29,7 @@ func Decode(r *http.Request, p Payload) error {
 func GetParam(r *http.Request, param string) (string, error) {
 	value := chi.URLParam(r, param)
 	if value == "" {
-		return "", output.ErrInvalidRequest(fmt.Errorf("`%s` is required in URL", param))
+		return "", errors.InvalidRequest(fmt.Errorf("`%s` is required in URL", param))
 	}
 
 	return value, nil
@@ -38,7 +38,7 @@ func GetParam(r *http.Request, param string) (string, error) {
 func GetRequiredQuery(r *http.Request, key string) (string, error) {
 	value := GetQuery(r, key)
 	if value == "" {
-		return "", output.ErrInvalidRequest(fmt.Errorf("`%s` is required in query", key))
+		return "", errors.InvalidRequest(fmt.Errorf("`%s` is required in query", key))
 	}
 
 	return value, nil
