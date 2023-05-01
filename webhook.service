@@ -1,0 +1,11 @@
+[Unit]
+Description=webhook
+After=network.target
+
+[Service]
+WorkingDirectory=/usr/local/webhook-api
+ExecStart=/usr/bin/webhook -hooks hooks.yml -verbose -hotreload
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

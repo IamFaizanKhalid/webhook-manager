@@ -35,8 +35,6 @@ func readConfig() (server.Config, error) {
 
 	// parsing from arguments
 	flag.IntVar(&c.HttpPort, "port", 8000, "Port for http server")
-	flag.StringVar(&c.HooksFile, "config", "hooks.yml", "Hooks config file")
-	flag.IntVar(&c.WebhookPort, "port", 9000, "Port of webhook server")
 	flag.Parse()
 
 	remainingArgs := flag.Args()
@@ -48,12 +46,6 @@ func readConfig() (server.Config, error) {
 	// parsing from environment variables
 	if x, err := strconv.ParseInt(os.Getenv("HTTP_PORT"), 10, 64); err != nil {
 		c.HttpPort = int(x)
-	}
-	if x := os.Getenv("HOOKS_FILE"); x != "" {
-		c.HooksFile = x
-	}
-	if x, err := strconv.ParseInt(os.Getenv("WEBHOOK_PORT"), 10, 64); err != nil {
-		c.WebhookPort = int(x)
 	}
 
 	// setting default values

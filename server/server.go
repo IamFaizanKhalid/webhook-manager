@@ -3,7 +3,6 @@ package server
 import (
 	"context"
 	"github.com/IamFaizanKhalid/webhook-api/internal/server/http"
-	"github.com/IamFaizanKhalid/webhook-api/internal/services/webhook"
 	"github.com/IamFaizanKhalid/webhook-api/server/api"
 	"github.com/IamFaizanKhalid/webhook-api/server/logic"
 	"github.com/IamFaizanKhalid/webhook-api/server/repo"
@@ -28,17 +27,6 @@ type Config struct {
 }
 
 func (s *Server) Start(ctx context.Context) error {
-	// webhook server
-	wh, err := webhook.NewServer(s.cfg.WebhookPort, s.cfg.HooksFile, os.Stdout)
-	if err != nil {
-		return err
-	}
-	err = wh.Start()
-	if err != nil {
-		return err
-	}
-	defer wh.Stop()
-
 	// data store
 	ds, err := repo.NewRepo(s.cfg.HooksFile)
 	if err != nil {
@@ -60,12 +48,9 @@ func (s *Server) Start(ctx context.Context) error {
 
 	go func() {
 		sig := <-signals
-		log.Println("received signal: ", sig)
-		err := wh.Stop()
-		if err != nil {
-			log.Println(err)
-		}
+		log.Println("received signal from the os: ", sig)
 		ctx.Done()
+		os.Exit(0)
 	}()
 
 	return httpSrv.Start()
