@@ -3,8 +3,8 @@ package logic
 import (
 	"context"
 	"fmt"
-	"github.com/IamFaizanKhalid/webhook-api/internal/errors"
-	"github.com/IamFaizanKhalid/webhook-api/server/dao"
+	"github.com/IamFaizanKhalid/webhook-manager/internal/errors"
+	"github.com/IamFaizanKhalid/webhook-manager/server/dao"
 )
 
 func (l *CoreLogic) GetAllHooks(ctx context.Context) []*dao.Hook {

@@ -2,11 +2,11 @@ package server
 
 import (
 	"context"
-	"github.com/IamFaizanKhalid/webhook-api/internal/auth"
-	"github.com/IamFaizanKhalid/webhook-api/internal/server/http"
-	"github.com/IamFaizanKhalid/webhook-api/server/api"
-	"github.com/IamFaizanKhalid/webhook-api/server/logic"
-	"github.com/IamFaizanKhalid/webhook-api/server/repo"
+	"github.com/IamFaizanKhalid/webhook-manager/internal/auth"
+	"github.com/IamFaizanKhalid/webhook-manager/internal/server/http"
+	"github.com/IamFaizanKhalid/webhook-manager/server/api"
+	"github.com/IamFaizanKhalid/webhook-manager/server/logic"
+	"github.com/IamFaizanKhalid/webhook-manager/server/repo"
 	"log"
 	"os"
 	"os/signal"

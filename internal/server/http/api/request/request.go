@@ -3,7 +3,7 @@ package request
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/IamFaizanKhalid/webhook-api/internal/errors"
+	"github.com/IamFaizanKhalid/webhook-manager/internal/errors"
 	"github.com/go-chi/chi/v5"
 	"net/http"
 )

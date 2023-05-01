@@ -3,7 +3,7 @@ package response
 import (
 	"encoding/json"
 	"errors"
-	errors2 "github.com/IamFaizanKhalid/webhook-api/internal/errors"
+	errors2 "github.com/IamFaizanKhalid/webhook-manager/internal/errors"
 	"net/http"
 )
 

@@ -1,7 +1,7 @@
 package server
 
 import (
-	"github.com/IamFaizanKhalid/webhook-api/internal/errors"
+	"github.com/IamFaizanKhalid/webhook-manager/internal/errors"
 	"net/http"
 )
 

@@ -1,7 +1,7 @@
 package api
 
 import (
-	"github.com/IamFaizanKhalid/webhook-api/internal/server/http/api/response"
+	"github.com/IamFaizanKhalid/webhook-manager/internal/server/http/api/response"
 	"github.com/go-chi/chi/v5"
 	"net/http"
 )

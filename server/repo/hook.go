@@ -2,7 +2,7 @@ package repo
 
 import (
 	"fmt"
-	"github.com/IamFaizanKhalid/webhook-api/server/dao"
+	"github.com/IamFaizanKhalid/webhook-manager/server/dao"
 )
 
 func (h *Repo) GetAllHooks() []*dao.Hook {

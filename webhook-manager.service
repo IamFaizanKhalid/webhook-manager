@@ -1,10 +1,10 @@
 [Unit]
-Description=webhook
+Description=webhook-manager
 After=network.target
 
 [Service]
 WorkingDirectory=/usr/local/webhook-manager
-ExecStart=/usr/bin/webhook -hooks hooks.yml -verbose -hotreload
+ExecStart=/usr/local/webhook-manager/webhook-manager
 Restart=always
 
 [Install]

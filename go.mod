@@ -1,4 +1,4 @@
-module github.com/IamFaizanKhalid/webhook-api
+module github.com/IamFaizanKhalid/webhook-manager
 
 go 1.20
 

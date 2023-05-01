@@ -2,8 +2,8 @@ package http
 
 import (
 	"fmt"
-	"github.com/IamFaizanKhalid/webhook-api/internal/auth"
-	"github.com/IamFaizanKhalid/webhook-api/internal/server/http/api"
+	"github.com/IamFaizanKhalid/webhook-manager/internal/auth"
+	"github.com/IamFaizanKhalid/webhook-manager/internal/server/http/api"
 	"log"
 	"net/http"
 )

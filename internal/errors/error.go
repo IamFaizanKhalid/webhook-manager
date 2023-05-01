@@ -1,7 +1,7 @@
 package errors
 
 import (
-	"github.com/IamFaizanKhalid/webhook-api/internal/utils"
+	"github.com/IamFaizanKhalid/webhook-manager/internal/utils"
 	"net/http"
 )
 

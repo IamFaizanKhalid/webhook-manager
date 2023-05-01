@@ -1,9 +1,9 @@
-PROJECT_NAME=webhook-api
+PROJECT_NAME=webhook-manager
 OUTPUT_DIRECTORY=./bin
 BINARY=$OUTPUT_DIRECTORY/$PROJECT_NAME
 
-TARGET_DIRECTORY=/usr/local/webhook-api
+TARGET_DIRECTORY=/usr/local/webhook-manager
 TARGET=$DEPLOY_DIRECTORY/$PROJECT_NAME
 
 WEBHOOK_SERVICE_FILE=webhook.service
-SERVICE_FILE=webhook-api.service
+SERVICE_FILE=webhook-manager.service

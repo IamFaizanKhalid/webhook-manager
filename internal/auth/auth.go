@@ -1,7 +1,7 @@
 package auth
 
 import (
-	"github.com/IamFaizanKhalid/webhook-api/internal/server/http/api/response"
+	"github.com/IamFaizanKhalid/webhook-manager/internal/server/http/api/response"
 	"net/http"
 )
 

@@ -2,8 +2,8 @@ package repo
 
 import (
 	"fmt"
-	"github.com/IamFaizanKhalid/webhook-api/internal/services/file"
-	"github.com/IamFaizanKhalid/webhook-api/server/dao"
+	"github.com/IamFaizanKhalid/webhook-manager/internal/services/file"
+	"github.com/IamFaizanKhalid/webhook-manager/server/dao"
 	"gopkg.in/yaml.v2"
 	"sync"
 )

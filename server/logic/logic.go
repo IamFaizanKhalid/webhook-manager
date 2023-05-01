@@ -1,8 +1,8 @@
 package logic
 
 import (
-	"github.com/IamFaizanKhalid/webhook-api/internal/errors"
-	"github.com/IamFaizanKhalid/webhook-api/server/repo"
+	"github.com/IamFaizanKhalid/webhook-manager/internal/errors"
+	"github.com/IamFaizanKhalid/webhook-manager/server/repo"
 )
 
 type CoreLogic struct {

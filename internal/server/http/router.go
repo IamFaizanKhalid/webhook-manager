@@ -1,7 +1,7 @@
 package http
 
 import (
-	"github.com/IamFaizanKhalid/webhook-api/internal/auth"
+	"github.com/IamFaizanKhalid/webhook-manager/internal/auth"
 	"net/http"
 	"time"
 
