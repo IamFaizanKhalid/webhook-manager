@@ -39,7 +39,7 @@ sudo cp $BINARY $TARGET || error "Failed to copy new binaries..."
 
 # copying the service files
 echo "Configuring service..."
-sudo cp WEBHOOK_SERVICE_FILE /etc/systemd/system/ || error "Failed to copy webhook service file..."
+sudo cp $WEBHOOK_SERVICE_FILE /etc/systemd/system/ || error "Failed to copy webhook service file..."
 sudo cp $SERVICE_FILE /etc/systemd/system/ || error "Failed to copy service file..."
 
 sudo systemctl daemon-reload || error "Failed to restart daemon..."
@@ -50,7 +50,7 @@ sudo systemctl enable $SERVICE_FILE || error "Failed to enable service..."
 
 # starting the services
 echo "Starting server..."
-sudo service $WEBHOOK_SERVICE_FILE start || error "Failed to start server..."
-sudo service $SERVICE_FILE start || error "Failed to start server..."
+sudo systemctl start $WEBHOOK_SERVICE_FILE || error "Failed to start server..."
+sudo systemctl start $SERVICE_FILE || error "Failed to start server..."
 
 echo "Setup complete..."
