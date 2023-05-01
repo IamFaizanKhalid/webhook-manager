@@ -15,7 +15,7 @@ if [ ! -d $OUTPUT_DIRECTORY ]; then
 	mkdir -p $OUTPUT_DIRECTORY || error "Failed to create build directory..."
 fi
 
-sudo /usr/local/go/bin/go build -o $BINARY ./cmd/backend/*.go || error "Failed to compile new code..."
+sudo /usr/local/go/bin/go build -o $BINARY ./cmd/server/*.go || error "Failed to compile new code..."
 
 # stop service
 echo "Stopping server..."
